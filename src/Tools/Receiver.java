@@ -1,5 +1,6 @@
 package Tools;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -55,15 +56,29 @@ public class Receiver {
     public void loadFile() {
         Path filepath = Paths.get("dataStore.txt");
 
-//        if (Files.notExists(filepath)) {
-//            System.out.println("No file to load");
-//            return;
-//        }
-//
-//        try (BufferedReader buff_reader = Files.newBufferedReader(filepath)) {
-//
-//        } catch (IOException e) {
-//            System.err.println("Error loading file: " + e.getMessage());
-//        } ;
+        if (Files.notExists(filepath)) {
+            System.out.println("No file to load");
+            return;
+        }
+
+        try (BufferedReader buff_reader = Files.newBufferedReader(filepath)) {
+            String line;
+            while ( (line = buff_reader.readLine()) != null) {
+                String delimiter = "\\. ";
+
+                // Split the string by the delimiter
+                String[] parts = line.split(delimiter);
+
+                // Check if there are two elements
+                if (parts.length == 2) {
+                    String secondElement = parts[1];
+                    employees.add(secondElement);
+                } else {
+                    System.out.println("Error with data, employee data does not fit specified format.");
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error loading file: " + e.getMessage());
+        } ;
     }
 }
