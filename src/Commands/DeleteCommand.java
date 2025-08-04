@@ -1,3 +1,7 @@
+package Commands;
+
+import Tools.Receiver;
+
 public class DeleteCommand implements Command {
 
     private Receiver receiver;

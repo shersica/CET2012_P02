@@ -1,3 +1,7 @@
+package Commands;
+
+import Tools.Receiver;
+
 import java.util.Stack;
 
 public class UndoCommand implements Command {

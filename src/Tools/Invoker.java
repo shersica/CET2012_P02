@@ -1,3 +1,8 @@
+package Tools;
+
+import Commands.Command;
+import Commands.UndoCommand;
+
 import java.util.List;
 import java.util.Stack;
 
