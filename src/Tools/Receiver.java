@@ -9,41 +9,69 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Receiver {
-    private ArrayList<String> employees = new ArrayList<>();
+    private ArrayList<String[]> employees = new ArrayList<>();
 
-    public void add(String params) {
-        employees.add(params);
-        System.out.println("Add");
+    public void add(String[] employee) {
+        employees.add(employee);
+        System.out.println("Added");
     }
 
-    public void update(int index, String params) {
-        employees.set(index, params);
+    public String[] update(int index, String firstName, String lastName, String email, int length) {
+        String[] previous = employees.get(index).clone();
+        String[] current = employees.get(index);
+
+        if (length == 2) {
+            current[0] = firstName;
+        } else if (length == 3) {
+            current[0] = firstName;
+            current[1] = lastName;
+        } else if (length == 4) {
+            current[0] = firstName;
+            current[1] = lastName;
+            current[2] = email;
+        }
+
+        employees.set(index, current);
         System.out.println("Update");
+        return previous;
     }
 
-    public void delete(int index) {
+    public String[] delete(int index) {
+        String[] employeeToDel = employees.get(index).clone();
         employees.remove(index);
         System.out.println("Delete");
+        return employeeToDel;
     }
 
     public void list(){
         int index = 1;
-        for (String emp : employees) {
-            System.out.printf("%02d. %s\n", index++, emp);
+        for (String[] emp : employees) {
+            System.out.printf("%02d. %s %s %s\n", index++, emp[0], emp[1], emp[2]);
         }
     }
 
-    public void undo() {
-        System.out.println("Undo");
+    public void undoAdd(){
+        int lastIndex = employees.size() - 1;
+        employees.remove(lastIndex);
+        System.out.println("Undo Add");
+    }
+
+    public void undoUpdate(int index, String[] employee){
+        employees.set(index, employee);
+        System.out.println("Undo Update");
+    }
+
+    public void undoDelete(int index, String[] employee){
+        employees.add(index, employee);
+        System.out.println("Undo Delete");
     }
 
     public void storeToFile() {
         Path filepath = Paths.get("dataStore.txt");
         try (BufferedWriter buff_writer = Files.newBufferedWriter(filepath)) {
-
             for (int i = 0; i < employees.size(); i++) {
-                String employee = employees.get(i);
-                String line = String.format("%02d. %s\n", i+1, employee);
+                String[] employee = employees.get(i);
+                String line = String.format("%02d. %s %s %s\n", i+1, employee[0], employee[1], employee[2]);
                 buff_writer.write(line);
             }
         } catch (IOException e) {
@@ -72,7 +100,11 @@ public class Receiver {
                 // Check if there are two elements
                 if (parts.length == 2) {
                     String secondElement = parts[1];
-                    employees.add(secondElement);
+                    String[] data = secondElement.split(" ");
+                    employees.add(data);
+//                    for (String[] employee : employees) {
+//                        System.out.println("load: " + employee[0] + " " + employee[1] + " " + employee[2]);
+//                    }
                 } else {
                     System.out.println("Error with data, employee data does not fit specified format.");
                 }
@@ -81,4 +113,6 @@ public class Receiver {
             System.err.println("Error loading file: " + e.getMessage());
         } ;
     }
+
+
 }

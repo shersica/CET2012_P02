@@ -16,9 +16,16 @@ public class UndoCommand implements Command {
     public void execute() {
         if (!history.isEmpty()) {
             Command lastCmd = history.pop();
-//            lastCmd.undo();
+            lastCmd.undo();
         } else {
             System.out.println("Nothing to undo");
         }
+    }
+
+    @Override
+    public void undo() {
+        System.out.println("Can't undo for UndoCommand, undoing previous command");
+        Command cmd = history.pop();
+        cmd.undo();
     }
 }
