@@ -20,14 +20,6 @@ public class Validators {
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(emailAdd);
 
-// uncomment the below for debugging purposes
-//        if (matcher.matches()) {
-//            System.out.println(emailAdd + " is valid ✅");
-//            return true;
-//        }
-//
-//        System.out.println(emailAdd + " NOT VALID ❌");
-//        return false;
         return matcher.matches() || (emailAdd.equals("Email"));
     }
 

@@ -1,6 +1,9 @@
 package Tools;
 
+import Commands.AddCommand;
 import Commands.Command;
+import Commands.DeleteCommand;
+import Commands.UpdateCommand;
 import CustomException.AppException;
 
 import java.util.Stack;
@@ -16,10 +19,12 @@ public class Invoker {
         for (Command cmd : cmdToExecute) {
             try {
                 cmd.execute();
+                if(cmd.getClass() == AddCommand.class || cmd.getClass() == UpdateCommand.class || cmd.getClass() == DeleteCommand.class) {
+                    history.push(cmd);
+                }
             } catch (AppException e) {
                 System.err.println(e.getMessage());
             }
-            history.push(cmd);
         }
     }
 }

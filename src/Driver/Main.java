@@ -58,7 +58,7 @@ public class Main {
         String deleteinput7 = "1";
         DeleteCommand delete7 = new DeleteCommand(receiver, deleteinput7);
 
-        ListCommand list = new ListCommand(receiver, history);
+        ListCommand list = new ListCommand(receiver);
         UndoCommand undo = new UndoCommand(receiver, history);
 
 
