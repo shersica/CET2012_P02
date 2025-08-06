@@ -30,11 +30,13 @@ public class DeleteCommand implements Command {
         }
 
         deletedEmployee = receiver.delete(index-1);
+        System.out.println("Delete");
     }
 
     @Override
     public void undo() {
         receiver.add(index, deletedEmployee);
+        System.out.println("Undo");
     }
 
 }

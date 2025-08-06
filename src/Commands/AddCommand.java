@@ -37,14 +37,15 @@ public class AddCommand implements Command {
         email = data[2];
 
         receiver.add(new String[]{firstName, lastName, email});
+        System.out.println("add");
     }
 
     @Override
     public void undo() {
         int lastIndex = receiver.getEmployeeCount() - 1;
         receiver.delete(lastIndex);
-        System.out.println("Ignore prev line, not Delete but Undo");
-        System.out.println("Undo (add)");
+//        System.out.println("Ignore prev line, not Delete but Undo");
+        System.out.println("Undo");
 
 //        receiver.undoAdd();
     }

@@ -24,7 +24,7 @@ public class UndoCommand implements Command {
 
     @Override
     public void undo() {
-        System.out.println("Can't undo for UndoCommand, undoing previous command");
+//        System.out.println("Can't undo for UndoCommand, undoing previous command");
         Command cmd = history.pop();
         cmd.undo();
     }

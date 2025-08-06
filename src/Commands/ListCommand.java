@@ -16,12 +16,13 @@ public class ListCommand implements Command {
 
     @Override
     public void execute() {
+        System.out.println("List");
         receiver.list();
     }
 
     @Override
     public void undo() {
-        System.out.println("Can't undo for ListCommand, undoing previous command");
+//        System.out.println("Can't undo for ListCommand, undoing previous command");
         Command cmd = history.pop();
         cmd.undo();
     }

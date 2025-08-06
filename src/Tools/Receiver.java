@@ -14,13 +14,13 @@ public class Receiver {
 
     public void add(String[] employee) {
         employees.add(employee);
-        System.out.println("Added");
+//        System.out.println("Added");
     }
 
     // Method Overloading for undo function
     public void add(int indx, String[] employee) {
         employees.add(indx-1, employee);
-        System.out.println("Undo (delete)");
+//        System.out.println("Undo (delete)");
     }
 
     public String[] update(int index, String firstName, String lastName, String email, int length) {
@@ -39,7 +39,7 @@ public class Receiver {
         }
 
         employees.set(index, current);
-        System.out.println("Update");
+//        System.out.println("Update");
         return previous;
     }
 
@@ -47,7 +47,7 @@ public class Receiver {
         String[] employeeToDel = employees.get(index).clone();
 //        System.out.println("employeeToDel is: " + Arrays.toString(employeeToDel));
         employees.remove(index);
-        System.out.println("Delete");
+//        System.out.println("Delete");
         return employeeToDel;
     }
 

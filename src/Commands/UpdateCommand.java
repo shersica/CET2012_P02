@@ -57,6 +57,7 @@ public class UpdateCommand implements Command {
 
 //        receiver.update(index, firstName, lastName, email, length);
         empBeforeUpdate = receiver.update(index, firstName, lastName, email, length);
+        System.out.println("update");
     }
 
     @Override
@@ -72,6 +73,6 @@ public class UpdateCommand implements Command {
 
         receiver.update(index, prevFirstName, prevLastName, prevEmail, 4);
 
-        System.out.println("Undo (update)");
+        System.out.println("Undo");
     }
 }
