@@ -55,7 +55,12 @@ public class AddCommand implements Command {
         this.params = paramsInput;
     }
 
-//    public AddCommand(Receiver receiver, String params) {
+    @Override
+    public boolean isUndoable() {
+        return true;
+    }
+
+    //    public AddCommand(Receiver receiver, String params) {
 //        this.receiver = receiver;
 //        String[] data = params.split(" ");
 //        if (data.length != 3) {

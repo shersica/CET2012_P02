@@ -75,4 +75,9 @@ public class UpdateCommand implements Command {
 
         System.out.println("Undo");
     }
+
+    @Override
+    public boolean isUndoable() {
+        return true;
+    }
 }

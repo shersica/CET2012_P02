@@ -19,7 +19,7 @@ public class Invoker {
         for (Command cmd : cmdToExecute) {
             try {
                 cmd.execute();
-                if(cmd.getClass() == AddCommand.class || cmd.getClass() == UpdateCommand.class || cmd.getClass() == DeleteCommand.class) {
+                if(cmd.isUndoable()) {
                     history.push(cmd);
                 }
             } catch (AppException e) {

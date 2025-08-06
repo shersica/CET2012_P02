@@ -6,4 +6,5 @@ public interface Command {
 
     void execute() throws AppException;
     void undo();
+    boolean isUndoable();
 }

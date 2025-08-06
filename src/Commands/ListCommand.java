@@ -2,7 +2,6 @@ package Commands;
 
 import Tools.Receiver;
 
-import java.util.Stack;
 
 public class ListCommand implements Command {
 
@@ -21,5 +20,10 @@ public class ListCommand implements Command {
     @Override
     public void undo() {
 
+    }
+
+    @Override
+    public boolean isUndoable() {
+        return false;
     }
 }

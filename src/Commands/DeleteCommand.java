@@ -39,4 +39,8 @@ public class DeleteCommand implements Command {
         System.out.println("Undo");
     }
 
+    @Override
+    public boolean isUndoable() {
+        return true;
+    }
 }
