@@ -3,7 +3,7 @@ package Commands;
 import CustomException.AppException;
 import Tools.Receiver;
 
-import static Driver.Validators.emailValid;
+import static Driver.Validators.data3Valid;
 import static Driver.Validators.toTitleCase;
 
 public class AddCommand implements Command {
@@ -28,7 +28,7 @@ public class AddCommand implements Command {
         }
 
         String employeeEmail = data[2];
-        if (!emailValid(employeeEmail)) {
+        if (!data3Valid(employeeEmail)) {
             throw new AppException("Invalid email format");
         }
 

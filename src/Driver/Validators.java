@@ -10,23 +10,31 @@ public class Validators {
      * @param emailAdd
      * @return true if email address matches format, else, false
      */
-    public static boolean emailValid(String emailAdd) {
+    public static boolean data3Valid(String emailAdd) {
         String emailRegex =
             "^(?!.*[.-]{2})(?![.-])[A-Za-z0-9_](?:[A-Za-z0-9._-]*[A-Za-z0-9_])?" +
             "@[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*" +
             "(?:\\.[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)*" +
             "\\.[a-z]{2,3}$";
 
-        Pattern pattern = Pattern.compile(emailRegex);
-        Matcher matcher = pattern.matcher(emailAdd);
+        // Latin letters (case insensitive), digits 0 to 9 and underscores
+        String latinDigitsUnderscores =
+               "^[A-Za-z0-9_]+$";
 
-        return matcher.matches() || (emailAdd.equals("Email"));
+        Pattern pattern0 = Pattern.compile(emailRegex);
+        Matcher matcher0 = pattern0.matcher(emailAdd);
+
+        Pattern pattern1 = Pattern.compile(latinDigitsUnderscores);
+        Matcher matcher1 = pattern1.matcher(emailAdd);
+
+
+        return matcher0.matches() || matcher1.matches();
     }
 
     /**
      *
-     * @param name in the form of Firstname or Lastname
-     * @return true if name is consists only of alphabets, else, false
+     * name in the form of Firstname or Lastname
+     * return true if name is consists only of alphabets, else, false
      */
 // not used
 //    public static boolean nameValid(String name) {

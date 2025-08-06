@@ -3,7 +3,7 @@ package Commands;
 import CustomException.AppException;
 import Tools.Receiver;
 
-import static Driver.Validators.emailValid;
+import static Driver.Validators.data3Valid;
 import static Driver.Validators.toTitleCase;
 
 public class UpdateCommand implements Command {
@@ -51,7 +51,7 @@ public class UpdateCommand implements Command {
         this.email     = data.length > 3 ? data[3] : null;
         this.length = data.length;
 
-        if (length == 4 && !emailValid(email)) {
+        if (length == 4 && !data3Valid(email)) {
             throw new AppException("Update failed: Invalid email format for " + email);
         }
 
