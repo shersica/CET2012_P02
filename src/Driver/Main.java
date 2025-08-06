@@ -1,7 +1,6 @@
 package Driver;
 
 import Commands.*;
-import CustomException.AppException;
 import Tools.Invoker;
 import Tools.Receiver;
 
