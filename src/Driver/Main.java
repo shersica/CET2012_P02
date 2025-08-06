@@ -38,7 +38,7 @@ public class Main {
 
         Stack<Command> history = new Stack<>();
         Receiver receiver = new Receiver();
-
+        receiver.loadFile();
         String addinput1 = "First_name Last_name Email";
         String addinput2 = "John Doe simple@example.com";
         String addinput3 = "Hanna Moon tetter.tots@potatoesarelife.com";
@@ -61,13 +61,15 @@ public class Main {
         UndoCommand undo = new UndoCommand(receiver, history);
 
 
-        Command[] command = {add1, add2, add3, add4, list, update5,
-                list, update6, list, delete7, list, undo, list};
+//        Command[] command = {add1, add2, add3, add4, list, update5,
+//                list, update6, list, delete7, list, undo, list};
+
+        Command[] command = {list};
 
 
         Invoker invoker = new Invoker();
         invoker.setCommandsForExecution(command);
         invoker.executeCommand(history);
-        receiver.storeToFile();
+//        receiver.storeToFile();
     }
 }

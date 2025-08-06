@@ -100,22 +100,8 @@ public class Receiver {
         try (BufferedReader buff_reader = Files.newBufferedReader(filepath)) {
             String line;
             while ( (line = buff_reader.readLine()) != null) {
-                String delimiter = "\\. ";
-
-                // Split the string by the delimiter
-                String[] parts = line.split(delimiter);
-
-                // Check if there are two elements
-                if (parts.length == 2) {
-                    String secondElement = parts[1];
-                    String[] data = secondElement.split(" ");
-                    employees.add(data);
-//                    for (String[] employee : employees) {
-//                        System.out.println("load: " + employee[0] + " " + employee[1] + " " + employee[2]);
-//                    }
-                } else {
-                    System.out.println("Error with data, employee data does not fit specified format.");
-                }
+                String[] employee = line.split(" ");
+                employees.add(new String[]{employee[1], employee[2], employee[3]});
             }
         } catch (IOException e) {
             System.err.println("Error loading file: " + e.getMessage());
