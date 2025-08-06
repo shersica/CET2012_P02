@@ -19,7 +19,7 @@ public class DeleteCommand implements Command {
     @Override
     public void execute() throws AppException {
         if (!indexStr.matches("\\d+")) {
-            throw new AppException("Unable to update, please provide a number to be updated.");
+            throw new AppException("Unable to delete, please provide a number to be deleted.");
         }
 
         // if valid, proceed with parsing it
