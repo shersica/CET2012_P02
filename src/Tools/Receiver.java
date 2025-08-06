@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Receiver {
     private ArrayList<String[]> employees = new ArrayList<>();
@@ -14,6 +15,12 @@ public class Receiver {
     public void add(String[] employee) {
         employees.add(employee);
         System.out.println("Added");
+    }
+
+    // Method Overloading for undo function
+    public void add(int indx, String[] employee) {
+        employees.add(indx-1, employee);
+        System.out.println("Undo (delete)");
     }
 
     public String[] update(int index, String firstName, String lastName, String email, int length) {
@@ -38,6 +45,7 @@ public class Receiver {
 
     public String[] delete(int index) {
         String[] employeeToDel = employees.get(index).clone();
+//        System.out.println("employeeToDel is: " + Arrays.toString(employeeToDel));
         employees.remove(index);
         System.out.println("Delete");
         return employeeToDel;
@@ -50,21 +58,22 @@ public class Receiver {
         }
     }
 
-    public void undoAdd(){
-        int lastIndex = employees.size() - 1;
-        employees.remove(lastIndex);
-        System.out.println("Undo Add");
-    }
+//    public void undoAdd(){
+//        int lastIndex = employees.size() - 1;
+//        employees.remove(lastIndex);
+//        System.out.println("Undo Add");
+//    }
 
-    public void undoUpdate(int index, String[] employee){
-        employees.set(index, employee);
-        System.out.println("Undo Update");
-    }
+//    public void undoUpdate(int index, String[] employee){
+//        employees.set(index, employee);
+//        System.out.println("Undo Update");
+//    }
 
-    public void undoDelete(int index, String[] employee){
-        employees.add(index, employee);
-        System.out.println("Undo Delete");
-    }
+//    public void undoDelete(int index, String[] employee){
+//        employees.add(index, employee);
+//        System.out.println("Undo Delete");
+//    }
+
 
     public void storeToFile() {
         Path filepath = Paths.get("dataStore.txt");
@@ -111,8 +120,11 @@ public class Receiver {
             }
         } catch (IOException e) {
             System.err.println("Error loading file: " + e.getMessage());
-        } ;
+        }
     }
 
+    public int getEmployeeCount() {
+        return employees.size();
+    }
 
 }

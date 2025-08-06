@@ -3,6 +3,7 @@ package Tools;
 import Commands.Command;
 import Commands.ListCommand;
 import Commands.UndoCommand;
+import CustomException.AppException;
 
 import java.util.Stack;
 
@@ -15,7 +16,11 @@ public class Invoker {
 
     public void executeCommand(Stack<Command> history) {
         for (Command cmd : cmdToExecute) {
-            cmd.execute();
+            try {
+                cmd.execute();
+            } catch (AppException e) {
+                System.err.println(e.getMessage());
+            }
             history.push(cmd);
         }
     }
