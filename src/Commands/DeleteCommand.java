@@ -1,27 +1,40 @@
 package Commands;
 
+import CustomException.AppException;
 import Tools.Receiver;
 
 public class DeleteCommand implements Command {
 
     private Receiver receiver;
-    private String index;
+    private String indexStr;
     private String[] deletedEmployee;
 
-    public DeleteCommand(Receiver receiver, String index) {
+    private int index;
+
+    public DeleteCommand(Receiver receiver, String indexInput) {
         this.receiver = receiver;
-        //validate index
-        this.index = index;
+        this.indexStr = indexInput;
     }
 
     @Override
-    public void execute() {
-        deletedEmployee = receiver.delete(Integer.parseInt(index)-1);
+    public void execute() throws AppException {
+        if (!indexStr.matches("\\d+")) {
+            throw new AppException("Unable to update, please provide a number to be updated.");
+        }
 
+        // if valid, proceed with parsing it
+        index = Integer.parseInt(indexStr);
+
+        if (index > receiver.getEmployeeCount() || index < 0) {
+            throw new AppException("Unable to delete, invalid index.");
+        }
+
+        deletedEmployee = receiver.delete(index-1);
     }
 
     @Override
     public void undo() {
-        receiver.undoDelete(Integer.parseInt(index)-1,deletedEmployee);
+        receiver.add(index, deletedEmployee);
     }
+
 }
