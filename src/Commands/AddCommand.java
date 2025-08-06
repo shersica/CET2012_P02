@@ -45,7 +45,7 @@ public class AddCommand implements Command {
         int lastIndex = receiver.getEmployeeCount() - 1;
         receiver.delete(lastIndex);
 //        System.out.println("Ignore prev line, not Delete but Undo");
-        System.out.println("Undo");
+//        System.out.println("Undo");
 
 //        receiver.undoAdd();
     }

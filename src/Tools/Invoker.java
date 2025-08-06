@@ -23,7 +23,8 @@ public class Invoker {
                     history.push(cmd);
                 }
             } catch (AppException e) {
-                System.err.println(e.getMessage());
+//                System.err.println(e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
     }

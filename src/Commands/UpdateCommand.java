@@ -73,7 +73,7 @@ public class UpdateCommand implements Command {
 
         receiver.update(index, prevFirstName, prevLastName, prevEmail, 4);
 
-        System.out.println("Undo");
+//        System.out.println("Undo");
     }
 
     @Override

@@ -36,7 +36,7 @@ public class DeleteCommand implements Command {
     @Override
     public void undo() {
         receiver.add(index, deletedEmployee);
-        System.out.println("Undo");
+//        System.out.println("Undo");
     }
 
     @Override
