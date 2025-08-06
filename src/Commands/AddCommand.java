@@ -3,8 +3,7 @@ package Commands;
 import CustomException.AppException;
 import Tools.Receiver;
 
-import static Driver.Validators.data3Valid;
-import static Driver.Validators.toTitleCase;
+import static Driver.Validators.*;
 
 public class AddCommand implements Command {
 
@@ -34,7 +33,7 @@ public class AddCommand implements Command {
 
         firstName = toTitleCase(data[0]);
         lastName = toTitleCase(data[1]);
-        email = data[2];
+        email = formatData3(data[2]);
 
         receiver.add(new String[]{firstName, lastName, email});
         System.out.println("add");

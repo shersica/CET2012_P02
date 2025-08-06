@@ -3,8 +3,7 @@ package Commands;
 import CustomException.AppException;
 import Tools.Receiver;
 
-import static Driver.Validators.data3Valid;
-import static Driver.Validators.toTitleCase;
+import static Driver.Validators.*;
 
 public class UpdateCommand implements Command {
     private Receiver receiver;
@@ -48,7 +47,7 @@ public class UpdateCommand implements Command {
         // done - not sure if names need to be validated (brief says no)
         this.firstName = toTitleCase(data[1]);
         this.lastName  = data.length > 2 ? toTitleCase(data[2]) : null;
-        this.email     = data.length > 3 ? data[3] : null;
+        this.email     = data.length > 3 ? formatData3(data[3]) : null;
         this.length = data.length;
 
         if (length == 4 && !data3Valid(email)) {

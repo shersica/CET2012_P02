@@ -31,6 +31,15 @@ public class Validators {
         return matcher0.matches() || matcher1.matches();
     }
 
+    public static String formatData3(String strUnknownFormat) {
+        // if format matches
+        if (strUnknownFormat.matches("^[A-Za-z0-9_]+$")) {
+            return toTitleCase(strUnknownFormat);
+        }
+        // return original (email address)
+        return strUnknownFormat;
+    }
+
     /**
      *
      * name in the form of Firstname or Lastname
@@ -68,5 +77,10 @@ public class Validators {
 
         return converted.toString();
     }
+
+    // delete later
+//    public static void main(String[] args) {
+//        System.out.println(formatData3("_x99hi"));
+//    }
 
 }
