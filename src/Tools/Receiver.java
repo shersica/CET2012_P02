@@ -75,7 +75,7 @@ public class Receiver {
 
 
     public void storeToFile() {
-        Path filepath = Paths.get("dataStore.txt");
+        Path filepath = Paths.get("src/dataStore.txt");
         try (BufferedWriter buff_writer = Files.newBufferedWriter(filepath)) {
             for (int i = 0; i < employees.size(); i++) {
                 String[] employee = employees.get(i);
@@ -83,14 +83,14 @@ public class Receiver {
                 buff_writer.write(line);
             }
         } catch (IOException e) {
-            System.err.println("Error saving to file: " + e.getMessage());
+            System.out.println("Error saving to file: " + e.getMessage());
         }
         System.out.println("Stored to file");
 
     }
 
     public void loadFile() {
-        Path filepath = Paths.get("dataStore.txt");
+        Path filepath = Paths.get("src/dataStore.txt");
 
         if (Files.notExists(filepath)) {
             System.out.println("No file to load");
