@@ -75,7 +75,7 @@ public class Receiver {
 
 
     public void storeToFile() {
-        Path filepath = Paths.get("src/dataStore.txt");
+        Path filepath = Paths.get("./src/dataStore.txt");
         try (BufferedWriter buff_writer = Files.newBufferedWriter(filepath)) {
             for (int i = 0; i < employees.size(); i++) {
                 String[] employee = employees.get(i);
@@ -90,7 +90,7 @@ public class Receiver {
     }
 
     public void loadFile() {
-        Path filepath = Paths.get("src/dataStore.txt");
+        Path filepath = Paths.get("./src/dataStore.txt");
 
         if (Files.notExists(filepath)) {
             System.out.println("No file to load");
