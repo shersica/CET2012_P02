@@ -104,7 +104,7 @@ public class Receiver {
                 employees.add(new String[]{employee[1], employee[2], employee[3]});
             }
         } catch (IOException e) {
-            System.err.println("Error loading file: " + e.getMessage());
+            System.out.println("Error reading file: " + e.getMessage());
         }
     }
 
