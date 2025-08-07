@@ -11,6 +11,10 @@ import java.util.ArrayList;
 public class Receiver {
     private ArrayList<String[]> employees = new ArrayList<>();
 
+    public Receiver() {
+        loadFile();
+    }
+
     public void add(String[] employee) {
         employees.add(employee);
 //        System.out.println("Added");
@@ -93,7 +97,7 @@ public class Receiver {
         Path filepath = Paths.get("./src/dataStore.txt");
 
         if (Files.notExists(filepath)) {
-            System.out.println("No file to load");
+//            System.out.println("No file to load");
             return;
         }
 

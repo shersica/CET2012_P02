@@ -38,14 +38,14 @@ public class Main {
 
         Stack<Command> history = new Stack<>();
         Receiver receiver = new Receiver();
-        receiver.loadFile();
-//        String addinput1 = "First_name Last_name Email";
-//        String addinput2 = "John Doe simple@example.com";
+//        receiver.loadFile();
+        String addinput1 = "First_name Last_name Email";
+        String addinput2 = "John Doe simple@example.com";
 //        String addinput3 = "Hanna Moon tetter.tots@potatoesarelife.com";
 //        String addinput4 = "Ah Boon green-tea@teaforlife.com";
 //
-//        AddCommand add1 = new AddCommand(receiver, addinput1);
-//        AddCommand add2 = new AddCommand(receiver, addinput2);
+        AddCommand add1 = new AddCommand(receiver, addinput1);
+        AddCommand add2 = new AddCommand(receiver, addinput2);
 //        AddCommand add3 = new AddCommand(receiver, addinput3);
 //        AddCommand add4 = new AddCommand(receiver, addinput4);
 //
@@ -64,12 +64,12 @@ public class Main {
 //        Command[] command = {add1, add2, add3, add4, list, update5,
 //                list, update6, list, delete7, list, undo, list};
 
-        Command[] command = {list};
+        Command[] command = {add1,add2, list};
 
 
         Invoker invoker = new Invoker();
         invoker.setCommandsForExecution(command);
         invoker.executeCommand(history);
-//        receiver.storeToFile();
+        receiver.storeToFile();
     }
 }
