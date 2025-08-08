@@ -47,8 +47,8 @@ public class UpdateCommand implements Command {
      * @param params_ raw parameters in {@code String} format
      */
     public UpdateCommand(Receiver receiver_, String params_) {
-        this.receiver = receiver_;
-        this.params = params_;
+        receiver = receiver_;
+        params = params_;
     }
 
     /**
