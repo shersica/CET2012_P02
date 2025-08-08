@@ -1,4 +1,0 @@
-01. First_name Last_name Email
-02. John Doe simple@example.com
-03. Adam Moon tetter.tots@potatoesarelife.com
-04. Ah Boon green-tea@teaforlife.com
