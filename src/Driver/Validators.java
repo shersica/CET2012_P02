@@ -3,12 +3,17 @@ package Driver;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Helper methods to help in validation of inputs and formatting in Title Case.
+ */
 public class Validators {
 
     /**
-     * helper method for validating emails
+     * Validates data3 by checking if matches the required email
+     * format, or latin letters (case-insensitive), digits 0 to 9 and underscores
+     *
      * @param emailAdd
-     * @return true if email address matches format, else, false
+     * @return true if data3 matches format, else, false
      */
     public static boolean data3Valid(String emailAdd) {
         String emailRegex =
@@ -17,7 +22,7 @@ public class Validators {
             "(?:\\.[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)*" +
             "\\.[a-z]{2,3}$";
 
-        // Latin letters (case insensitive), digits 0 to 9 and underscores
+        // Latin letters (case-insensitive), digits 0 to 9 and underscores
         String latinDigitsUnderscores =
                "^[A-Za-z0-9_]+$";
 
@@ -31,30 +36,26 @@ public class Validators {
         return matcher0.matches() || matcher1.matches();
     }
 
+    /**
+     * Checks if data3 is an email address, and returns the string in Title Case if it is not
+     * @param strUnknownFormat
+     * @return data3 in Title Case if it matches the format, else, return the original
+     */
     public static String formatData3(String strUnknownFormat) {
         // if format matches
         if (strUnknownFormat.matches("^[A-Za-z0-9_]+$")) {
             return toTitleCase(strUnknownFormat);
         }
-        // return original (email address)
+
+        // else, return original (email address)
         return strUnknownFormat;
     }
 
     /**
-     *
-     * name in the form of Firstname or Lastname
-     * return true if name is consists only of alphabets, else, false
+     * Helper method for formatting names to Title Case
+     * @param text original text
+     * @return text in Title Case
      */
-// not used
-//    public static boolean nameValid(String name) {
-//        String alphaCharsRegex = "^[a-zA-Z]+$";
-//
-//        Pattern pattern = Pattern.compile(alphaCharsRegex);
-//        Matcher matcher = pattern.matcher(name);
-//
-//        return matcher.matches();
-//    }
-
     public static String toTitleCase(String text) {
         if (text == null || text.isEmpty()) {
             return text;
@@ -77,10 +78,4 @@ public class Validators {
 
         return converted.toString();
     }
-
-    // delete later
-//    public static void main(String[] args) {
-//        System.out.println(formatData3("_x99hi"));
-//    }
-
 }
