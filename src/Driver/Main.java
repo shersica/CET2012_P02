@@ -27,7 +27,7 @@ public class Main {
         UpdateCommand update5 = new UpdateCommand(receiver, updateinput5);
         UpdateCommand update6 = new UpdateCommand(receiver, updateinput6);
 
-        String deleteinput7 = "0";
+        String deleteinput7 = "1";
         DeleteCommand delete7 = new DeleteCommand(receiver, deleteinput7);
 
         ListCommand list = new ListCommand(receiver);

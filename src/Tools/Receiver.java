@@ -37,11 +37,11 @@ public class Receiver {
 
     /**
      * Adds an employee back to a specific index (used for undoing delete)
-     * @param indx     the 1-based index to insert the employee back at
+     * @param index     the 0-based index to insert the employee back at
      * @param employee a {@code String[]} representing {First_name, Last_name, Email}
      */
-    public void add(int indx, String[] employee) {
-        employees.add(indx-1, employee);
+    public void add(int index, String[] employee) {
+        employees.add(index, employee);
     }
 
     /**

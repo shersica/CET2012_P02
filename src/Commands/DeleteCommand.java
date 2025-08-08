@@ -68,12 +68,10 @@ public class DeleteCommand implements Command {
 //        deletedEmployee = receiver.delete(index-1);
 //        System.out.println("Delete");
 
-
-
         // if valid, proceed with parsing it
         index = Integer.parseInt(indexStr) - 1;
 
-        if (index > receiver.getEmployeeCount() || index < 0) {
+        if (index >= receiver.getEmployeeCount() || index < 0) {
             throw new AppException("Unable to delete, invalid index.");
         }
 
