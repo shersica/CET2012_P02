@@ -42,12 +42,6 @@ public class UpdateCommand implements Command {
     private String[] empBeforeUpdate;
 
     /**
-     * The number of fields provided.
-     * TODO: CHECK - i deleted this
-     */
-//        int length = data.length;
-
-    /**
      * Constructor for the UpdateCommand class.
      * @param receiver_ the receiver instance responsible for executing the command
      * @param params_ raw parameters in {@code String} format

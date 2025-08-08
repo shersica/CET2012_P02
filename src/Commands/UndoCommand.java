@@ -19,6 +19,7 @@ public class UndoCommand implements Command {
 
     /**
      * Constructor for the UndoCommand class.
+     * @param receiver the receiver instance responsible for executing the command
      * @param history_ commands previously executed
      */
     public UndoCommand(Receiver receiver, Stack<Command> history_) {

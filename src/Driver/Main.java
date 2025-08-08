@@ -6,8 +6,15 @@ import Tools.Receiver;
 
 import java.util.Stack;
 
+/**
+ * Main tester
+ */
 public class Main {
 
+    /**
+     * Main tester
+     * @param args inputs
+     */
     public static void main(String[] args) {
         Stack<Command> history = new Stack<>();
         Receiver receiver = new Receiver();

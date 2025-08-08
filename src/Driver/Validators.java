@@ -10,21 +10,21 @@ public class Validators {
 
     /**
      * Validates data3 by checking if matches the required email
-     * format, or latin letters (case-insensitive), digits 0 to 9 and underscores
+     * format, or latin letters (case-insensitive), digits 0 to 9 and underscores.
      *
-     * @param emailAdd
+     * @param emailAdd raw input for data3
      * @return true if data3 matches format, else, false
      */
     public static boolean data3Valid(String emailAdd) {
         String emailRegex =
-            "^(?!.*[.-]{2})(?![.-])[A-Za-z0-9_](?:[A-Za-z0-9._-]*[A-Za-z0-9_])?" +
-            "@[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*" +
-            "(?:\\.[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)*" +
-            "\\.[a-z]{2,3}$";
+                "^(?!.*[.-]{2})(?![.-])[A-Za-z0-9_](?:[A-Za-z0-9._-]*[A-Za-z0-9_])?" +
+                        "@[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*" +
+                        "(?:\\.[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)*" +
+                        "\\.[a-z]{2,3}$";
 
         // Latin letters (case-insensitive), digits 0 to 9 and underscores
         String latinDigitsUnderscores =
-               "^[A-Za-z0-9_]+$";
+                "^[A-Za-z0-9_]+$";
 
         Pattern pattern0 = Pattern.compile(emailRegex);
         Matcher matcher0 = pattern0.matcher(emailAdd);
@@ -37,8 +37,9 @@ public class Validators {
     }
 
     /**
-     * Checks if data3 is an email address, and returns the string in Title Case if it is not
-     * @param strUnknownFormat
+     * Checks if data3 matches format of latin letters (case-insensitive),
+     * digits 0 to 9 and underscores, and returns the string in Title Case if it is not.
+     * @param strUnknownFormat a valid raw input for data3
      * @return data3 in Title Case if it matches the format, else, return the original
      */
     public static String formatData3(String strUnknownFormat) {

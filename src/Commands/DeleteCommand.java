@@ -56,18 +56,6 @@ public class DeleteCommand implements Command {
             throw new AppException("Unable to delete, please provide a valid number to be deleted.");
         }
 
-//        // if valid, proceed with parsing it
-//        index = Integer.parseInt(indexStr);
-//
-//        // latter validation was "index < 0" previously
-//        // TODO: CHECK THIS - I have no idea why index = 0 was not caught
-//        if (index > receiver.getEmployeeCount() || index < 0) {
-//            throw new AppException("Unable to delete, invalid index.");
-//        }
-//
-//        deletedEmployee = receiver.delete(index-1);
-//        System.out.println("Delete");
-
         // if valid, proceed with parsing it
         index = Integer.parseInt(indexStr) - 1;
 
@@ -77,8 +65,6 @@ public class DeleteCommand implements Command {
 
         deletedEmployee = receiver.delete(index); // (index-1) -> (index)
         System.out.println("Delete");
-
-
     }
 
     /**
